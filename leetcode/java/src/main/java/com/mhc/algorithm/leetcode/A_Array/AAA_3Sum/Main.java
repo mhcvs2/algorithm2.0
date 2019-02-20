@@ -19,11 +19,50 @@ A solution set is:
 ]
 */
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
 
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        int l = nums.length;
+        int s, e, sum;
+        boolean sn, en;
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        for(int i=0; i<l-2; i++){
+            if(nums[i] > 0) {
+                break;
+            }
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            s = i+1;
+            e = l-1;
+            while (s<e){
+                en = sn = false;
+                sum = nums[i] + nums[s] + nums[e];
+                if(sum == 0) {
+                    res.add(Arrays.asList(nums[i], nums[s], nums[e]));
+                    en = true;
+                    sn = true;
+                } else if (sum > 0){
+                    en = true;
+                } else {
+                    sn = true;
+                }
+                if(en){
+                    while (s<e && nums[e]==nums[e-1]) e--;
+                    e--;
+                }
+                if(sn){
+                    while (s<e && nums[s]==nums[s+1]) s++;
+                    s++;
+                }
+            }
+        }
+        return res;
     }
 }
 
@@ -33,7 +72,7 @@ public class Main {
 
         Solution s = new Solution();
 
-        System.out.println();
+        System.out.println(s.threeSum(new int[]{-2,0,0,2,2}));
     }
 
 }
