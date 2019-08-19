@@ -1,13 +1,5 @@
 
 
-class DoubleNode(object):
-
-    def __init__(self, value, n=None, l=None):
-        self.value = value
-        self.next = n
-        self.last = l
-
-
 def remove_last_kth_node(head, k):
     if head is None or k < 1:
         return head

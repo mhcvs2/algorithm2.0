@@ -1,12 +1,5 @@
 
 
-class Node(object):
-
-    def __init__(self, value, n=None):
-        self.value = value
-        self.next = n
-
-
 def remove_last_kth_node(head, k):
     if head is None or k < 1:
         return head
