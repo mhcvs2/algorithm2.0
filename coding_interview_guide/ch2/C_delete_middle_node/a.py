@@ -1,18 +1,10 @@
 import unittest
+from ch2.base import BaseUtils
 from ch2.test import TestSingle
 
 
-def get_length(head):
-    l = 0
-    cur = head
-    while cur is not None:
-        cur = cur.next
-        l += 1
-    return l
-
-
 def delete_middle(head):
-    l = get_length(head)
+    l = BaseUtils.get_length(head)
     if l in (0, 1):
         return head
     if l == 2:

@@ -45,3 +45,27 @@ class BaseUtils(object):
             return
         data_list = cls.to_list(head)
         print(' -> '.join(data_list))
+
+    @staticmethod
+    def get_length(head):
+        l = 0
+        cur = head
+        while cur is not None:
+            cur = cur.next
+            l += 1
+        return l
+
+    @staticmethod
+    def is_equal(head1, head2):
+        cur1 = head1
+        cur2 = head2
+        if cur1 is None and cur2 is None:
+            return True
+        while cur1 is not None or cur2 is not None:
+            if cur1 is None or cur2 is None:
+                return False
+            if cur1.value != cur2.value:
+                return False
+            cur1 = cur1.next
+            cur2 = cur2.next
+        return True
