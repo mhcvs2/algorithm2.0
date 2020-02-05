@@ -84,5 +84,6 @@ def t1():
     # A B C D E F G H I J
     print()
 
+
 if __name__ == '__main__':
     t1()
