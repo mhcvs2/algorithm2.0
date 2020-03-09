@@ -28,7 +28,6 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
-lib/
 *.egg
 build/
 *.a

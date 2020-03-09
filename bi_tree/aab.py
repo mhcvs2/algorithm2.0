@@ -1,6 +1,6 @@
 """https://blog.csdn.net/xiangxianghehe/article/details/81805957"""
 from unittest import TestCase
-from .utils import *
+from bi_tree.lib.utils import *
 
 
 def get_kth_num(bi_tree, k):

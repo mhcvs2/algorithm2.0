@@ -1,5 +1,5 @@
 # encoding: utf-8
-from .utils import *
+from bi_tree.lib.utils import *
 
 
 def default_handler(node):
@@ -10,23 +10,23 @@ def pre_order_traverse(bi_tree, handler=default_handler):
     if bi_tree is None:
         return
     handler(bi_tree)
-    pre_order_traverse(bi_tree.lchild)
-    pre_order_traverse(bi_tree.rchild)
+    pre_order_traverse(bi_tree.lchild, handler)
+    pre_order_traverse(bi_tree.rchild, handler)
 
 
 def in_order_traverse(bi_tree, handler=default_handler):
     if bi_tree is None:
         return
-    in_order_traverse(bi_tree.lchild)
+    in_order_traverse(bi_tree.lchild, handler)
     handler(bi_tree)
-    in_order_traverse(bi_tree.rchild)
+    in_order_traverse(bi_tree.rchild, handler)
 
 
 def post_order_traverse(bi_tree, handler=default_handler):
     if bi_tree is None:
         return
-    post_order_traverse(bi_tree.lchild)
-    post_order_traverse(bi_tree.rchild)
+    post_order_traverse(bi_tree.lchild, handler)
+    post_order_traverse(bi_tree.rchild, handler)
     handler(bi_tree)
 
 
